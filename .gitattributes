@@ -1,1 +1,4 @@
+# Hides third-party .shader files by TextMeshPro from the repository's language distribution
 *.shader linguist-vendored
+# Hides third-party .hlsl files by Unity Post-processing from the repository's language distribution
+*.hlsl linguist-vendored
