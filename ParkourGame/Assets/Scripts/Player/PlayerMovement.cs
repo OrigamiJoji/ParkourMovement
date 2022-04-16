@@ -135,11 +135,6 @@ public class PlayerMovement : MonoBehaviour {
     private RaycastHit leftWallRaycast;
     private RaycastHit rightWallRaycast;
     #endregion
-    #region Ledge Grab
-
-    public bool canGrabLedge;
-    public Animator pa;
-    #endregion
     #region Grapple
 
     public float grappleDist;
@@ -174,7 +169,6 @@ public class PlayerMovement : MonoBehaviour {
     #endregion
     #region Awake, Start
     private void Awake() {
-        pa.GetComponent<Animator>();
         rb.GetComponent<Rigidbody>();
         pl.GetComponent<PlayerLook>();
     }
@@ -182,6 +176,7 @@ public class PlayerMovement : MonoBehaviour {
         characterScale = gameObject.transform.localScale;
         crouchScale = new Vector3(characterScale.x, characterScale.y / 2, characterScale.z);
         playerMask = ~playerMask;
+        slowDuration = 100;
     }
     #endregion
     #region Update, FixedUpdate
@@ -489,19 +484,6 @@ public class PlayerMovement : MonoBehaviour {
     void StopWallRun() {
         rb.useGravity = true;
         pl.NormalTilt();
-    }
-    #endregion
-    #region Ledge Climb
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("Ledge")) {
-            canGrabLedge = true;
-        }
-    }
-
-    private void LedgeGrab() {
-        if (canGrabLedge) {
-            pa.SetTrigger("Grab");
-        }
     }
     #endregion
     #region Grapple

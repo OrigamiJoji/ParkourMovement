@@ -5560,7 +5560,7 @@ BoxCollider:
   m_GameObject: {fileID: 603420110}
   m_Material: {fileID: 13400000, guid: 63ebf67ef014ded43bc38c9e5d9163f5, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -5738,7 +5738,6 @@ GameObject:
   - component: {fileID: 616819546}
   - component: {fileID: 616819547}
   - component: {fileID: 616819549}
-  - component: {fileID: 616819552}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -5855,8 +5854,8 @@ MonoBehaviour:
   slowAssist: 0
   isSlowed: 0
   slowDuration: 1
-  timeRegen: 2
-  intialTimeCost: 5
+  timeRegen: 2.5
+  intialTimeCost: 3
   timeCost: 10
   slideForce: 6.2
   slideReq: 10
@@ -5885,12 +5884,10 @@ MonoBehaviour:
   wallReleaseForce: 10
   floorDist: 1.2
   wallDist: 0.8
-  canGrabLedge: 0
-  pa: {fileID: 616819552}
   grappleDist: 20
   whatCanGrapple:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 1024
   playerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -5906,25 +5903,6 @@ MonoBehaviour:
   body: {fileID: 1955629122}
   playerCamera: {fileID: 523501342}
   grapplingHook: {fileID: 1719124120}
---- !u!95 &616819552
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616819545}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 37507ea882046b54691aa93570f9653b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &622518305
 GameObject:
   m_ObjectHideFlags: 0
@@ -12567,6 +12545,7 @@ GameObject:
   - component: {fileID: 1421006259}
   - component: {fileID: 1421006258}
   - component: {fileID: 1421006257}
+  - component: {fileID: 1421006260}
   m_Layer: 0
   m_Name: Bounds
   m_TagString: Untagged
@@ -12597,10 +12576,10 @@ BoxCollider:
   m_GameObject: {fileID: 1421006256}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 78.82419, y: 163.31651, z: 276.6394}
-  m_Center: {x: -17.843979, y: 74.18119, z: -39.755615}
+  m_Size: {x: 78.824196, y: 24.84954, z: 276.6394}
+  m_Center: {x: -17.843977, y: 4.9476905, z: -39.75562}
 --- !u!4 &1421006259
 Transform:
   m_ObjectHideFlags: 0
@@ -12609,12 +12588,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421006256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.4, y: 46.767, z: -46.795}
-  m_LocalScale: {x: 1.5566, y: 0.8616, z: 1.9317}
+  m_LocalPosition: {x: 127.19, y: -210, z: -46.795}
+  m_LocalScale: {x: 6.756734, y: 4.348988, z: 1.9317}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1421006260
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421006256}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.6, y: 1, z: 229.8}
+  m_Center: {x: -17.4, y: 51.9, z: 10.5}
 --- !u!1 &1455923960
 GameObject:
   m_ObjectHideFlags: 0
