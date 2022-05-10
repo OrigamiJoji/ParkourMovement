@@ -182,6 +182,7 @@ public class PlayerMovement : MonoBehaviour {
         characterScale = gameObject.transform.localScale;
         crouchScale = new Vector3(characterScale.x, characterScale.y / 2, characterScale.z);
         playerMask = ~playerMask;
+        slowDuration = 100;
     }
     #endregion
     #region Update, FixedUpdate
@@ -245,7 +246,7 @@ public class PlayerMovement : MonoBehaviour {
             //Debug.Log("3");
             rb.AddForce(slopeDir.normalized * moveSpeed * moveMultiplier, ForceMode.Acceleration);
         }
-        else if (isGrounded && isCrouched && !isSliding && !isOnSlope && !isGrappling) {//crouch walk
+        else if (isGrounded && isCrouched && !isSliding && CurrentSlopeAngle() < slopeSlideReq && !isGrappling) {//crouch walk
             //Debug.Log("4");
             rb.AddForce(moveDir.normalized * crouchSpeed * moveMultiplier, ForceMode.Acceleration);
         }
@@ -431,10 +432,10 @@ public class PlayerMovement : MonoBehaviour {
         }
         else { moveSpeed = Mathf.Lerp(moveSpeed, walkSpeed, acceleration * Time.deltaTime); }
 
-        if (Input.GetKey(KeyCode.LeftShift) && !isCrouched && !isOnSlope) {
+        if (Input.GetKey(KeyCode.LeftShift) && !isCrouched) {
             pl.SprintFOV();
         }
-        else if (!isCrouched && !isOnSlope) { pl.NormalFOV(); }
+        else if (!isCrouched) { pl.NormalFOV(); }
     }
 
     #endregion
